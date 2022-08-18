@@ -1,0 +1,45 @@
+ada index di transaksi :
+CREATE INDEX data_transaksi_idx ON transaksi(tgl_transaksi)
+
+SELECT * FROM produk JOIN kemasan ON produk.id_kemasan = kemasan.id
+
+#1451 - Cannot delete or update a 
+parent row: a foreign key 
+constraint fails 
+(`project1`.`stok`, 
+CONSTRAINT `stok_ibfk_1` 
+FOREIGN KEY (`id_produk`) REFERENCES 
+`produk` (`Id`))
+
+
+ALTER TABLE `produk`
+ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`id_kemasan`) 
+      REFERENCES `kemasan` (`id`);
+
+ALTER TABLE `kemasan`
+ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`id`) 
+      REFERENCES `produk` (`id`);
+
+SELECT transaksi.tgl_transaksi, SUM(transaksi.total) AS total_harian
+FROM transaksi
+WHERE tgl_transaksi = DATE(NOW())
+GROUP BY transaksi.tgl_transaksi
+
+SELECT transaksi.tgl_transaksi, SUM(transaksi.total) AS total_harian
+FROM transaksi
+WHERE MONTH(transaksi.tgl_transaksi) = MONTH(NOW())
+GROUP BY transaksi.tgl_transaksi
+
+SELECT transaksi.tgl_transaksi, SUM(transaksi.total) AS total_harian
+FROM transaksi
+WHERE YEAR(transaksi.tgl_transaksi) = YEAR(NOW())
+GROUP BY transaksi.tgl_transaksi
+
+AKHIRRNYAAA
+
+ngebug goro2 type text
+
+u	p
+admin - admin
+123 - 123
+lama - lama
